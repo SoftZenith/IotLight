@@ -1,9 +1,11 @@
 package mx.edu.ittepic.iotlight;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
@@ -17,6 +19,7 @@ import java.net.URL;
 public class MainActivity extends AppCompatActivity {
 
     ToggleButton btnSala, btnComedor, btnRec1, btnRec2;
+    Button btnAcer;
 
 
     @Override
@@ -28,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
         btnComedor = (ToggleButton) findViewById(R.id.btnSala);
         btnRec1 = (ToggleButton) findViewById(R.id.btnRec1);
         btnRec2 = (ToggleButton) findViewById(R.id.btnRec2);
+        btnAcer = (Button) findViewById(R.id.btnAcerca);
 
         btnSala.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -53,5 +57,19 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+
+        btnAcer.setOnClickListener(new View.OnClickListener() {
+            @Override public void onClick(View v)
+            { Intent intent = new Intent(v.getContext(), about.class);
+                startActivityForResult(intent, 0);
+            }
+        });
+
+
     }
+
+    @Override
+    public void onBackPressed() {
+    }
+
 }
